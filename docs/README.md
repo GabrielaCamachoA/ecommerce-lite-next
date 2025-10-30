@@ -59,12 +59,12 @@
 ####  Sube la rama
 git push origin feature/new-component
 
-##  Crea el Pull Request hacia develop
-### Título: Feature: New Component
-#### Descripción: Explica los cambios principales y su propósito
+##   Crea el Pull Request hacia develop
+#####  Título: Feature: New Component
+#####  Descripción: Explica los cambios principales y su propósito
 
 
-#  BUENAS PRÁCTICAS
+###  BUENAS PRÁCTICAS
 
 -  Commits pequeños y descriptivos
 -  Todo en inglés
