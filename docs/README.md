@@ -18,7 +18,7 @@
 - git checkout -b refactor/dashboard-component
 
 
-### 💬CONVENCIONES DE COMMITS
+### CONVENCIONES DE COMMITS
 
 #### Estructura:
 
@@ -45,26 +45,26 @@
 
 ### FLUJO DE TRABAJO RECOMENDADO
 
-#### 1️⃣ Asegúrate de estar en develop
+####  Asegúrate de estar en develop
 - git checkout develop
 - git pull origin develop
 
-#### 2️⃣ Crea tu rama
+#### Crea tu rama
 - git checkout -b feature/new-component
 
-#### 3️⃣ Haz tus cambios y commits
+####  Haz tus cambios y commits
 - git add .
 - git commit -m "feat(component): create reusable button"
 
-#### 4️⃣ Sube la rama
+####  Sube la rama
 git push origin feature/new-component
 
-## 5️⃣ Crea el Pull Request hacia develop
+##  Crea el Pull Request hacia develop
 ### Título: Feature: New Component
 #### Descripción: Explica los cambios principales y su propósito
 
 
-# 🧹 BUENAS PRÁCTICAS
+#  BUENAS PRÁCTICAS
 
 -  Commits pequeños y descriptivos
 -  Todo en inglés
