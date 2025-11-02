@@ -11,7 +11,7 @@ export const products: Product[] = [
     price: 899.99,
     isActive: true,
     category: "Smartphones",
-    imageUrl: "",
+    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoYAtE7dtaQ4ZL_N7I1Tv-5mfMguevUqhb4w&s",
     createdAt: new Date().toISOString(),
     tags: ["android", "5G", "AMOLED"],
     dimensions: { width: 7.2, height: 15.8, depth: 0.8 },
@@ -25,7 +25,7 @@ export const products: Product[] = [
     price: 1199.0,
     isActive: true,
     category: "Laptops",
-    imageUrl: "",
+    imageUrl: "https://co-media.hptiendaenlinea.com/catalog/product/7/6/76Q26LT-1_T1730149405.png",
     createdAt: new Date().toISOString(),
     tags: ["laptop", "intel", "business"],
     description: "Reliable laptop designed for professionals and multitasking."
@@ -38,7 +38,7 @@ export const products: Product[] = [
     price: 1499.99,
     isActive: true,
     category: "Laptops",
-    imageUrl: "",
+    imageUrl: "https://mac-center.com/cdn/shop/files/IMG-12444373.jpg?v=1723750058&width=823",
     createdAt: new Date().toISOString(),
     tags: ["macbook", "apple", "lightweight"],
     description: "Powerful yet ultra-light laptop with Apple M3 chip."
@@ -51,7 +51,7 @@ export const products: Product[] = [
     price: 99.99,
     isActive: true,
     category: "Accessories",
-    imageUrl: "",
+    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ6MJ1TkRj9NHC8WL-GDwXiSue36gSc1JIeA&s",
     createdAt: new Date().toISOString(),
     tags: ["mouse", "wireless", "ergonomic"],
     description: "Ergonomic wireless mouse with precision tracking and silent clicks."
@@ -64,20 +64,20 @@ export const products: Product[] = [
     price: 169.99,
     isActive: true,
     category: "Accessories",
-    imageUrl: "",
+    imageUrl: "https://m.media-amazon.com/images/I/7193Jl8PejL._AC_SL1500_.jpg",
     createdAt: new Date().toISOString(),
     tags: ["keyboard", "mechanical", "RGB"],
     description: "High-performance RGB mechanical keyboard for gamers."
   },
   {
     sku: "P-006",
-    name: "4K Smart TV 55''",
+    name: "4K Smart TV 55",
     brand: "LG",
     quantity: 15,
     price: 999.99,
     isActive: true,
     category: "Televisions",
-    imageUrl: "",
+    imageUrl: "https://www.lg.com/cac/images/televisores/md07504085/gallery/D1.jpg",
     createdAt: new Date().toISOString(),
     tags: ["TV", "4K", "HDR"],
     description: "Ultra HD Smart TV with vibrant colors and voice assistant support."
@@ -90,7 +90,7 @@ export const products: Product[] = [
     price: 59.99,
     isActive: true,
     category: "Audio",
-    imageUrl: "",
+    imageUrl: "https://i5.walmartimages.com/seo/JBL-Go-3-Portable-Waterproof-Speaker-Black_cfb8fe3b-9da7-4e4c-9aef-846ca01ef720.bae0ebd59ba514077181b24959ff7937.jpeg",
     createdAt: new Date().toISOString(),
     tags: ["speaker", "portable", "bluetooth"],
     description: "Compact waterproof speaker with impressive sound."
@@ -103,7 +103,7 @@ export const products: Product[] = [
     price: 379.99,
     isActive: true,
     category: "Audio",
-    imageUrl: "",
+    imageUrl: "https://exitocol.vtexassets.com/arquivos/ids/10200048/audifonos-bose-noise-cancelling-headphones-700-negro.jpg?v=637681466441900000",
     createdAt: new Date().toISOString(),
     tags: ["headphones", "noise cancelling", "wireless"],
     description: "Premium headphones with superior noise cancellation and comfort."
@@ -116,7 +116,7 @@ export const products: Product[] = [
     price: 299.99,
     isActive: true,
     category: "Monitors",
-    imageUrl: "",
+    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlhVtZEAxG00dF1WZWYSWSR8iFgSAWZp_wlA&s",
     createdAt: new Date().toISOString(),
     tags: ["monitor", "gaming", "curved"],
     description: "Curved 27-inch gaming monitor with 144Hz refresh rate."
@@ -129,7 +129,7 @@ export const products: Product[] = [
     price: 149.99,
     isActive: true,
     category: "Storage",
-    imageUrl: "",
+    imageUrl: "https://m.media-amazon.com/images/I/71bBCTIvIIL.jpg",
     createdAt: new Date().toISOString(),
     tags: ["storage", "ssd", "portable"],
     description: "Fast and durable external SSD with USB-C interface."
@@ -142,7 +142,7 @@ export const products: Product[] = [
     price: 199.99,
     isActive: true,
     category: "Networking",
-    imageUrl: "",
+    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc0UOyW7caQmTZJDSW-rY10K6TTE07oH6xHQ&s",
     createdAt: new Date().toISOString(),
     tags: ["wifi", "router", "dual-band"],
     description: "High-speed router with advanced connectivity for large homes."
@@ -155,7 +155,7 @@ export const products: Product[] = [
     price: 229.99,
     isActive: true,
     category: "Wearables",
-    imageUrl: "",
+    imageUrl: "https://http2.mlstatic.com/D_NQ_NP_877625-MCO88649971728_072025-O.webp",
     createdAt: new Date().toISOString(),
     tags: ["fitness", "smartwatch", "fitbit"],
     description: "Fitness-focused smartwatch with heart rate and sleep tracking."
@@ -168,7 +168,7 @@ export const products: Product[] = [
     price: 499.99,
     isActive: true,
     category: "Drones",
-    imageUrl: "",
+    imageUrl: "https://dji-official-fe.djicdn.com/dps/6c205137b8ac2ca09cfc19c778812176.png",
     createdAt: new Date().toISOString(),
     tags: ["drone", "camera", "aerial"],
     description: "Compact drone with HD camera and stable flight controls."
@@ -181,7 +181,7 @@ export const products: Product[] = [
     price: 99.99,
     isActive: true,
     category: "Smart Home",
-    imageUrl: "",
+    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSngvy2qFoAhsBBrDeDaXp-E0z5HXOpcHEJUA&s",
     createdAt: new Date().toISOString(),
     tags: ["smart home", "assistant", "voice control"],
     description: "Compact home assistant hub with voice commands and automation."
@@ -194,7 +194,7 @@ export const products: Product[] = [
     price: 59.99,
     isActive: true,
     category: "Accessories",
-    imageUrl: "",
+    imageUrl: "https://i5.walmartimages.com/seo/20000-mAh-Portable-Charger-Power-Bank-Dual-USB-Battery-Pack-for-iPhone-iPad-Galaxy-Android-Pixel-and-Tablet-Black_c01c4471-00f5-4b3f-90f6-c150e8a26d25.5b7f8365592d758bda90de260ddf7dbd.jpeg",
     createdAt: new Date().toISOString(),
     tags: ["charger", "portable", "usb-c"],
     description: "High-capacity power bank with fast charging for multiple devices."

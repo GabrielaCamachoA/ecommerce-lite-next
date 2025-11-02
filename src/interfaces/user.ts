@@ -9,3 +9,7 @@ export interface User {
   tags?: string[];
   description?: string;
 }
+
+export interface UserCardProps {
+  user: User;
+}
