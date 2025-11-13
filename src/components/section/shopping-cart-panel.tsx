@@ -8,11 +8,11 @@ import { Button } from "../../../components/ui/button"
 import { cn } from "../../../lib/utils"
 
 interface CartItemData {
-  id: string
+  sku: string
   name: string
   price: number
   quantity: number
-  image: string
+  imageUrl: string
 }
 
 interface ShoppingCartPanelProps {
@@ -64,10 +64,14 @@ export function ShoppingCartPanel({
             <div className="space-y-0">
               {items.map((item) => (
                 <CartItem
-                  key={item.id}
-                  {...item}
-                  onUpdateQuantity={(quantity) => onUpdateQuantity?.(item.id, quantity)}
-                  onRemove={() => onRemoveItem?.(item.id)}
+                  key={item.sku}
+                  id={item.sku}
+                  name={item.name}
+                  price={item.price}
+                  quantity={item.quantity}
+                  image={item.imageUrl}
+                  onUpdateQuantity={(quantity) => onUpdateQuantity?.(item.sku, quantity)}
+                  onRemove={() => onRemoveItem?.(item.sku)}
                 />
               ))}
             </div>

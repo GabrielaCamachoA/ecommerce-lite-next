@@ -8,8 +8,10 @@ import { InputField } from "../../components/ui/input-field"
 
 import { Icon } from "../../components/ui/icon"
 import { Button } from "../../../components/ui/button"
+import { useAuth } from "../../context/AuthContext"
 
 export function LoginPage() {
+  const { login } = useAuth()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [errors, setErrors] = useState<{ email?: string; password?: string }>({})
@@ -26,7 +28,7 @@ export function LoginPage() {
       return
     }
 
-    console.log("Login:", { email, password })
+    login(email, password)
   }
 
   return (

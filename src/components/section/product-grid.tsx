@@ -2,13 +2,7 @@
 
 import { cn } from "../../../lib/utils"
 import { ProductCard } from "../ui/product-card"
-
-interface Product {
-  id: string
-  name: string
-  price: number
-  image: string
-}
+import { Product } from "@/interfaces/product"
 
 interface ProductGridProps {
   products: Product[]
@@ -20,7 +14,7 @@ export function ProductGrid({ products, onAddToCart, className }: ProductGridPro
   return (
     <div className={cn("grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6", className)}>
       {products.map((product) => (
-        <ProductCard key={product.id} {...product} onAddToCart={() => onAddToCart?.(product.id)} />
+        <ProductCard key={product.sku} product={product} onAddToCart={() => onAddToCart?.(product.sku)} />
       ))}
     </div>
   )

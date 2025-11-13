@@ -5,78 +5,23 @@ import { Navbar } from "../../components/section/navbar"
 import { Footer } from "../../components/section/footer"
 import { ProductGrid } from "../../components/section/product-grid"
 import { ShoppingCartPanel } from "../../components/section/shopping-cart-panel"
+import { products  } from "@/data/data"
 
-const MOCK_PRODUCTS = [
-  {
-    id: "1",
-    name: "Premium Wireless Headphones",
-    price: 299.99,
-    image: "/premium-wireless-headphones.png",
-  },
-  {
-    id: "2",
-    name: "Minimalist Watch",
-    price: 159.99,
-    image: "/minimalist-watch.png",
-  },
-  {
-    id: "3",
-    name: "Leather Backpack",
-    price: 89.99,
-    image: "/brown-leather-backpack.png",
-  },
-  {
-    id: "4",
-    name: "Smart Water Bottle",
-    price: 45.99,
-    image: "/smart-water-bottle.jpg",
-  },
-  {
-    id: "5",
-    name: "Wireless Keyboard",
-    price: 129.99,
-    image: "/wireless-keyboard.png",
-  },
-  {
-    id: "6",
-    name: "Portable Charger",
-    price: 39.99,
-    image: "/portable-charger-lifestyle.png",
-  },
-  {
-    id: "7",
-    name: "Sunglasses",
-    price: 149.99,
-    image: "/stylish-sunglasses.png",
-  },
-  {
-    id: "8",
-    name: "Yoga Mat",
-    price: 49.99,
-    image: "/rolled-yoga-mat.png",
-  },
-]
-
-interface CartItem {
-  id: string
-  name: string
-  price: number
-  quantity: number
-  image: string
-}
+// Define CartItem type based on product structure and quantity
+type CartItem = typeof products[number] & { quantity: number }
 
 export function Dashboard() {
   const [cartOpen, setCartOpen] = useState(false)
   const [cartItems, setCartItems] = useState<CartItem[]>([])
 
   const handleAddToCart = (productId: string) => {
-    const product = MOCK_PRODUCTS.find((p) => p.id === productId)
+    const product = products.find((p) => p.sku === productId)
     if (!product) return
 
     setCartItems((prev) => {
-      const existing = prev.find((item) => item.id === productId)
+      const existing = prev.find((item) => item.sku === productId)
       if (existing) {
-        return prev.map((item) => (item.id === productId ? { ...item, quantity: item.quantity + 1 } : item))
+        return prev.map((item) => (item.sku === productId ? { ...item, quantity: item.quantity + 1 } : item))
       }
       return [...prev, { ...product, quantity: 1 }]
     })
@@ -84,11 +29,11 @@ export function Dashboard() {
 
   const handleUpdateQuantity = (itemId: string, quantity: number) => {
     if (quantity < 1) return
-    setCartItems((prev) => prev.map((item) => (item.id === itemId ? { ...item, quantity } : item)))
+    setCartItems((prev) => prev.map((item) => (item.sku === itemId ? { ...item, quantity } : item)))
   }
 
   const handleRemoveItem = (itemId: string) => {
-    setCartItems((prev) => prev.filter((item) => item.id !== itemId))
+    setCartItems((prev) => prev.filter((item) => item.sku !== itemId))
   }
 
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0)
@@ -108,7 +53,7 @@ export function Dashboard() {
         </section>
 
         <section className="container mx-auto px-4 py-12">
-          <ProductGrid products={MOCK_PRODUCTS} onAddToCart={handleAddToCart} />
+          <ProductGrid products={products} onAddToCart={handleAddToCart} />
         </section>
       </main>
 

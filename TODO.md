@@ -1,0 +1,5 @@
+- [x] Create AuthContext (src/context/AuthContext.tsx)
+- [x] Update LoginPage to set login state on successful form submission
+- [x] Modify page.tsx to conditionally render Dashboard if logged in, else LoginPage
+- [x] Update layout.tsx to wrap with AuthProvider
+- [x] Test login flow
