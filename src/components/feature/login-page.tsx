@@ -4,17 +4,21 @@ import type React from "react"
 
 import { useState } from "react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { InputField } from "../../components/ui/input-field"
 
 import { Icon } from "../../components/ui/icon"
 import { Button } from "../../../components/ui/button"
-import { useAuth } from "../../context/AuthContext"
+import { authenticateUser } from "../../../utils/auth"
+import { useAuthStore } from "../../store/authStore"
 
 export function LoginPage() {
-  const { login } = useAuth()
+  const { login } = useAuthStore()
+  const router = useRouter()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [errors, setErrors] = useState<{ email?: string; password?: string }>({})
+  const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -25,10 +29,24 @@ export function LoginPage() {
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors)
+      setMessage(null)
       return
     }
 
-    login(email, password)
+    try {
+      const user = authenticateUser(email, password)
+      if (user) {
+        login(user)
+        setMessage({ type: 'success', text: 'Login successful! Redirecting...' })
+        setTimeout(() => {
+          router.push('/dashboard')
+        }, 1000)
+      } else {
+        setMessage({ type: 'error', text: 'Invalid email or password.' })
+      }
+    } catch (error) {
+      setMessage({ type: 'error', text: 'An error occurred during login.' })
+    }
   }
 
   return (
@@ -41,6 +59,11 @@ export function LoginPage() {
             </div>
             <h1 className="text-2xl font-bold text-foreground">Welcome Back</h1>
             <p className="text-sm text-muted-foreground">Sign in to your account</p>
+            {message && (
+              <div className={`text-sm ${message.type === 'success' ? 'text-green-600' : 'text-red-600'}`}>
+                {message.text}
+              </div>
+            )}
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">

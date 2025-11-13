@@ -1,12 +1,12 @@
 "use client"
 
 import { Dashboard } from "@/components/feature/dashboard";
-import { useAuth } from "@/context/AuthContext";
+import { useAuthStore } from "@/store/authStore";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function DashboardPage() {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn } = useAuthStore();
   const router = useRouter();
 
   useEffect(() => {

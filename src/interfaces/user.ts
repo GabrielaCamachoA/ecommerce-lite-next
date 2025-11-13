@@ -2,6 +2,7 @@ export interface User {
   id: number;
   fullName: string;
   email: string;
+  password: string;
   isActive: boolean;
   role: "admin" | "user";
   address: string;

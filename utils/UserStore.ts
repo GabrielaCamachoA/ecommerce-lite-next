@@ -24,10 +24,14 @@ export class UserStore {
 
     update(id: number, userData: Partial<User>): void {
         console.log(`PATCH /users/${id}`);
-       
+        const userIndex = this.users.findIndex(user => user.id === id);
+        if (userIndex !== -1) {
+            this.users[userIndex] = { ...this.users[userIndex], ...userData };
+        }
     }
 
     remove(id: number): void {
         console.log(`DELETE /users/${id}`);
+        this.users = this.users.filter(user => user.id !== id);
     }
 }

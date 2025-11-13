@@ -1,10 +1,11 @@
 "use client"
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react'
+import { authenticateUser } from '../../utils/auth'
 
 interface AuthContextType {
   isLoggedIn: boolean
-  login: (email: string, password: string) => void
+  login: (email: string, password: string) => boolean
   logout: () => void
 }
 
@@ -19,12 +20,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setIsLoggedIn(loggedIn)
   }, [])
 
-  const login = (email: string, password: string) => {
-    // Simple login logic - in real app, validate against backend
-    if (email && password) {
+  const login = (email: string, password: string): boolean => {
+    const user = authenticateUser(email, password)
+    if (user) {
       setIsLoggedIn(true)
       localStorage.setItem('isLoggedIn', 'true')
+      return true
     }
+    return false
   }
 
   const logout = () => {

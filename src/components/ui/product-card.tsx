@@ -2,6 +2,7 @@
 
 import { Button } from "../../../components/ui/button"
 import { Card } from "../../../components/ui/card"
+import { Badge } from "../../../components/ui/badge"
 import { cn } from "../../../lib/utils"
 import { Icon } from "./icon"
 import { Product } from "@/interfaces/product"
@@ -29,7 +30,21 @@ export function ProductCard({ product, onAddToCart, className }: ProductCardProp
         </button>
       </div>
       <div className="p-4 space-y-3">
-        <h3 className="font-medium text-foreground line-clamp-2 leading-tight">{product.name}</h3>
+        <div className="flex items-start justify-between">
+          <h3 className="font-medium text-foreground line-clamp-2 leading-tight">{product.name}</h3>
+          <Badge variant={product.isActive ? "default" : "secondary"}>
+            {product.isActive ? "Active" : "Inactive"}
+          </Badge>
+        </div>
+        {product.tags && product.tags.length > 0 && (
+          <div className="flex flex-wrap gap-1">
+            {product.tags.slice(0, 3).map((tag, index) => (
+              <Badge key={index} variant="outline" className="text-xs">
+                {tag}
+              </Badge>
+            ))}
+          </div>
+        )}
         <div className="flex items-center justify-between">
           <span className="text-xl font-semibold text-primary">${product.price.toFixed(2)}</span>
           <Button size="sm" onClick={onAddToCart} className="gap-1.5">
