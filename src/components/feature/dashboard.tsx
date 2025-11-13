@@ -7,7 +7,7 @@ import { Footer } from "../../components/section/footer"
 import { ProductGrid } from "../../components/section/product-grid"
 import { ShoppingCartPanel } from "../../components/section/shopping-cart-panel"
 import { Button } from "../../../components/ui/button"
-import { Input } from "../../../components/ui/input"
+
 import { products  } from "@/data/data"
 import { useAuthStore } from "../../store/authStore"
 
@@ -57,7 +57,13 @@ export function Dashboard() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar cartItemsCount={totalItems} onCartClick={() => setCartOpen(true)} />
+      <Navbar
+        cartItemsCount={totalItems}
+        onCartClick={() => setCartOpen(true)}
+        onLogout={handleLogout}
+        searchTerm={searchTerm}
+        onSearchChange={setSearchTerm}
+      />
 
       <main className="flex-1">
         <section className="bg-secondary/20 border-b border-border">
@@ -72,16 +78,6 @@ export function Dashboard() {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
-                <Input
-                  type="text"
-                  placeholder="Search products..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full sm:w-64"
-                />
-                <Button onClick={handleLogout} variant="outline">
-                  Logout
-                </Button>
               </div>
             </div>
           </div>

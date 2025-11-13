@@ -1,19 +1,20 @@
 "use client"
 
-import { useState } from "react"
 import Link from "next/link"
 import { Icon } from "../../components/ui/icon"
 import { Button } from "../../../components/ui/button"
+import { Input } from "../../../components/ui/input"
 
 
 interface NavbarProps {
   cartItemsCount?: number
   onCartClick?: () => void
+  onLogout?: () => void
+  searchTerm?: string
+  onSearchChange?: (value: string) => void
 }
 
-export function Navbar({ cartItemsCount = 0, onCartClick }: NavbarProps) {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-
+export function Navbar({ cartItemsCount = 0, onCartClick, onLogout, searchTerm = "", onSearchChange }: NavbarProps) {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur-sm">
       <div className="container mx-auto px-4">
@@ -25,27 +26,14 @@ export function Navbar({ cartItemsCount = 0, onCartClick }: NavbarProps) {
             <span className="font-semibold text-lg text-foreground">Store</span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-6">
-            <Link href="/" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-              Home
-            </Link>
-            <Link href="/products" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-              Products
-            </Link>
-            <Link href="/about" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-              About
-            </Link>
-          </nav>
-
           <div className="flex items-center gap-3">
-            <Button variant="ghost" size="icon" className="hidden md:flex">
-              <Icon name="search" size={20} />
-            </Button>
-            <Button variant="ghost" size="icon" asChild>
-              <Link href="/login">
-                <Icon name="user" size={20} />
-              </Link>
-            </Button>
+            <Input
+              type="text"
+              placeholder="Buscar productos..."
+              value={searchTerm}
+              onChange={(e) => onSearchChange?.(e.target.value)}
+              className="w-64"
+            />
             <Button variant="ghost" size="icon" className="relative" onClick={onCartClick}>
               <Icon name="cart" size={20} />
               {cartItemsCount > 0 && (
@@ -54,39 +42,13 @@ export function Navbar({ cartItemsCount = 0, onCartClick }: NavbarProps) {
                 </span>
               )}
             </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              <Icon name={isMobileMenuOpen ? "close" : "menu"} size={20} />
-            </Button>
+            {onLogout && (
+              <Button variant="ghost" size="icon" onClick={onLogout}>
+                <Icon name="logout" size={20} />
+              </Button>
+            )}
           </div>
         </div>
-
-        {isMobileMenuOpen && (
-          <nav className="md:hidden py-4 space-y-3 border-t border-border">
-            <Link
-              href="/"
-              className="block py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
-            >
-              Home
-            </Link>
-            <Link
-              href="/products"
-              className="block py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
-            >
-              Products
-            </Link>
-            <Link
-              href="/about"
-              className="block py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
-            >
-              About
-            </Link>
-          </nav>
-        )}
       </div>
     </header>
   )
