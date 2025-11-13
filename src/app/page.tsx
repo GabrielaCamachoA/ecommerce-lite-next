@@ -1,12 +1,12 @@
 "use client"
 
-// import ProductsList from "../components/sections/ProductsList";
-// import { products } from "../data/data";
+import { Dashboard } from "@/components/feature/dashboard";
 
 export default function Home() {
   return (
     <>
       {/* <ProductsList products={products} /> */}
+      <Dashboard />
     </>
   );
 }

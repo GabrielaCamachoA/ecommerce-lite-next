@@ -1,5 +1,7 @@
-import { Product } from "@/src/interfaces/product";
-import { User } from "@/src/interfaces/user";
+
+import { Product } from "@/interfaces/product";
+import { User } from "@/interfaces/user";
+
 
 
 export const products: Product[] = [

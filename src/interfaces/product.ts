@@ -19,4 +19,6 @@ export interface Product {
 
 export interface ProductCardProps {
   product: Product;
+  onAddToCart?: () => void;
+  className?: string;
 }
