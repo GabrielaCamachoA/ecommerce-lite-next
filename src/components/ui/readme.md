@@ -1,2 +1,0 @@
-Aquí se encuentran los componentes de interfaz de usuario genéricos, es decir, aquellos que pueden reutilizarse en cualquier parte del proyecto.
-Ejemplos: botones, modales, formularios, inputs, alertas, etc.

@@ -16,3 +16,9 @@ export interface Product {
     depth?: number
   }
 }
+
+export interface ProductCardProps {
+  product: Product;
+  onAddToCart?: () => void;
+  className?: string;
+}
